@@ -92,18 +92,22 @@ namespace CircleInput2
                 if (configName == "x_slider")
                 {
                     this.rawMainpadStatus.x = state.Value;
+                    break;
                 }
                 if (configName == "y_slider")
                 {
                     this.rawMainpadStatus.y = state.Value;
+                    break;
                 }
                 if (configName == "x_rotate")
                 {
                     this.rawRotationStatus.x = state.Value;
+                    break;
                 }
                 if (configName == "y_rotate")
                 {
                     this.rawRotationStatus.y = state.Value;
+                    break;
                 }
 
                 if (configName == "_pov")
@@ -156,8 +160,21 @@ namespace CircleInput2
                     }
                     break;
                 }
+                if (configName == "z_minus")
+                {
+                    this.rawJoystickHoldStatus["z_minus"] = Math.Abs(state.Value) > 500? 1: 0;
+                    if (this.rawJoystickHoldStatus.ContainsKey("z_plus") && this.rawJoystickHoldStatus["z_plus"] == 1) this.rawJoystickHoldStatus["z_plus"] = 0;
+                    break;
+                }
+                if (configName == "z_plus")
+                {
+                    this.rawJoystickHoldStatus["z_plus"] = Math.Abs(state.Value) > 500 ? 1 : 0;
+                    if (this.rawJoystickHoldStatus.ContainsKey("z_minus") && this.rawJoystickHoldStatus["z_minus"] == 1) this.rawJoystickHoldStatus["z_minus"] = 0;
+                    break;
+                }
 
-                if (!rawJoystickHoldStatus.ContainsKey(configName)) 
+
+                if (!rawJoystickHoldStatus.ContainsKey(configName))
                 {
                     this.rawJoystickHoldStatus[configName] = 0;
                 }
