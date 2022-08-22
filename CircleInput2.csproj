@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0B0870FA-6B50-4484-8B9A-37524E6F7D72}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CircleInput2</RootNamespace>
+    <AssemblyName>CircleInput2</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>tray.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\ConfigController.cs" />
+    <Compile Include="Controller\ImeController.cs" />
+    <Compile Include="Controller\JoystickController.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\JoystickWrapper.cs" />
+    <Compile Include="Util\AutoHotKeyUtil.cs" />
+    <Compile Include="Util\ConfigLoader.cs" />
+    <Compile Include="Util\ImeObserver.cs" />
+    <Compile Include="Util\JoyStickObserver.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Util\KeyboardObserver.cs" />
+    <Compile Include="Util\PhysicalButtonAssociationUtil.cs" />
+    <Compile Include="Util\WindowObserver.cs" />
+    <Compile Include="Value\CircleDispatchCode.cs" />
+    <Compile Include="Value\KeyCode.cs" />
+    <Compile Include="Value\DefaultConfig.cs" />
+    <Compile Include="Value\Value.cs" />
+    <Compile Include="ValueObject\AnalogStickStatus.cs" />
+    <Compile Include="ValueObject\Config.cs" />
+    <Compile Include="View\AdditionalButtonDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdditionalButtonDialog.designer.cs">
+      <DependentUpon>AdditionalButtonDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AHKError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AHKError.designer.cs">
+      <DependentUpon>AHKError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Author.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Author.designer.cs">
+      <DependentUpon>Author.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ButtonConfigInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ButtonConfigInput.designer.cs">
+      <DependentUpon>ButtonConfigInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CircleConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CircleConfig.designer.cs">
+      <DependentUpon>CircleConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CircleDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CircleDialog.Designer.cs">
+      <DependentUpon>CircleDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ConfigInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ConfigInput.designer.cs">
+      <DependentUpon>ConfigInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ConfigMainDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ConfigMainDialog.designer.cs">
+      <DependentUpon>ConfigMainDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MultiPurpose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MultiPurpose.designer.cs">
+      <DependentUpon>MultiPurpose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\StickConfigInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StickConfigInput.designer.cs">
+      <DependentUpon>StickConfigInput.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="SharpDX, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>packages\SharpDX.4.2.0\lib\net45\SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.DirectInput, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>packages\SharpDX.DirectInput.4.2.0\lib\net45\SharpDX.DirectInput.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Text.Json, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsInput, Version=1.0.4.0, Culture=neutral, PublicKeyToken=9b287f7dc5073cad, processorArchitecture=MSIL">
+      <HintPath>packages\InputSimulator.1.0.4.0\lib\net20\WindowsInput.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include=".nuget\mouse-keyboard-hook-logo.png" />
+    <Content Include="tray.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\AdditionalButtonDialog.resx">
+      <DependentUpon>AdditionalButtonDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AHKError.resx">
+      <DependentUpon>AHKError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Author.resx">
+      <DependentUpon>Author.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ButtonConfigInput.resx">
+      <DependentUpon>ButtonConfigInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CircleConfig.resx">
+      <DependentUpon>CircleConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CircleDialog.resx">
+      <DependentUpon>CircleDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ConfigInput.resx">
+      <DependentUpon>ConfigInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ConfigMainDialog.resx">
+      <DependentUpon>ConfigMainDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MultiPurpose.resx">
+      <DependentUpon>MultiPurpose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StickConfigInput.resx">
+      <DependentUpon>StickConfigInput.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
