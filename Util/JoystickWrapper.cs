@@ -92,22 +92,18 @@ namespace CircleInput2
                 if (configName == "x_slider")
                 {
                     this.rawMainpadStatus.x = state.Value;
-                    break;
                 }
                 if (configName == "y_slider")
                 {
                     this.rawMainpadStatus.y = state.Value;
-                    break;
                 }
                 if (configName == "x_rotate")
                 {
                     this.rawRotationStatus.x = state.Value;
-                    break;
                 }
                 if (configName == "y_rotate")
                 {
                     this.rawRotationStatus.y = state.Value;
-                    break;
                 }
 
                 if (configName == "_pov")
