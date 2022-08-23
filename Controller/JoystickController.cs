@@ -194,6 +194,7 @@ namespace CircleInput2
         public void Stop()
         {
             jso.Stop();
+            thread.Abort();
         }
 
         private void joystickWrapper_JoystickWrapperEventHandler(object sender, JoystickWrapperEventArg e)
