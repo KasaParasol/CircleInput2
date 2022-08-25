@@ -531,8 +531,9 @@ namespace CircleInput2
                 var cj = new Dictionary<string, int>(currentJoystickHoldStatus);
                 foreach (var kvp in cj)
                 {
-                    if (kvp.Key != "x_slider" && kvp.Key != "y_slider" && kvp.Key != "x_rotate" && kvp.Key != "y_rotate" && kvp.Value > 1)
+                    if (kvp.Key != "x_slider" && kvp.Key != "y_slider" && kvp.Key != "x_rotate" && kvp.Key != "y_rotate" && kvp.Value > Value.INNER_MODE_CHANGE_THRESHOLD)
                     {
+                        Console.WriteLine(kvp.Value);
                         currentInnerModeIdx = kvp.Key;
                         break;
                     }

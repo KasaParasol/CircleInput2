@@ -14,5 +14,10 @@
         /// ボタンのロングプレス判定しきい値(単位: フレーム)
         /// </summary>
         public const int DIGITAL_BUTTONS_HOLD_THRESHOLD = 5;
+
+        /// <summary>
+        /// 同時押しモードしきい値(単位: フレーム)
+        /// </summary>
+        public const int INNER_MODE_CHANGE_THRESHOLD = 3;
     }
 }
